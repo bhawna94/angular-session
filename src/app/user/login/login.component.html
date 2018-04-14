@@ -1,0 +1,19 @@
+<!--
+<p> login!!!! </p>
+<p>welcome {{firstname}}</p>
+<button (click)="submitForm()">submit</button>
+-->
+<form #loginform="ngForm" (submit)="submituser()">
+  <input> required name="email"[(ngModel)]="user.email" type="text"/>
+
+  touched: {{email.touched}}<br>
+  untouched: {{email.untouched}}<br>
+  valid:{{email.valid}}<br>
+  invalid:{{email.invalid}}<br>
+  dirty:{{email.dirty}}<br>
+  pristine:{{email.pristine}}<br>
+  <div *ngIf="email.valid" > email is valid </div>
+  <input #pass="ngModel" required name="password" type="password" [(ngModel)]="user.password"/>
+  <button [disabled]="loginform.invalid" type="submit">Login</button>
+
+</form>
